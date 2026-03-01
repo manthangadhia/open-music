@@ -1,0 +1,6 @@
+customtkinter>=5.2.2,<6
+mutagen>=1.47.0,<2
+yt-dlp>=2026.2.21,<2027
+ipython>=9.10.0,<10
+ipykernel>=7.2.0,<8
+pyinstaller>=6.19.0,<7
