@@ -1,0 +1,17 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+env/
+
+# Build artifacts
+build/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# vscode files
+.vscode/
