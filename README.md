@@ -1,6 +1,6 @@
 # `open-music`
 
-[Click here to download a windows executable version of this app.](https://github.com/manthangadhia/open-music/releases/latest/download/open-music.exe)
+[Click here to download a windows executable version of this app.](https://github.com/manthangadhia/open-music/download/open-music.exe)
 
 And otherwise you can copy this repository and run `open-music.py`, using `conda` as your package manager, or [`pixi` as I do](https://pixi.prefix.dev/latest/tutorials/import/#conda-env-format).
 
