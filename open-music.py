@@ -55,6 +55,18 @@ class SetTrackPostProcessor(yt_dlp.postprocessor.PostProcessor):
         tags.save(filepath, v2_version=3)
 
         return [], info
+    
+from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
+
+def clean_url(url: str) -> str:
+    parsed = urlparse(url)
+    params = parse_qs(parsed.query)
+    
+    # Keep only the parameters that actually matter
+    keep = {k: v for k, v in params.items() if k in ("v", "list")}
+    
+    cleaned = parsed._replace(query=urlencode(keep, doseq=True))
+    return urlunparse(cleaned)
 
 def url_type_playlist(url: str) -> bool:
     with yt_dlp.YoutubeDL({"quiet": True}) as ydl:
@@ -87,6 +99,7 @@ def inspect_metadata(url: str):
                 print(f"{k}: {v}")
 
 def download(url: str, destination: Path, user_use_index: bool = False):
+    url = clean_url(url)
     url_is_playlist = url_type_playlist(url)
     track_index = True if (url_is_playlist and user_use_index) else False
     ffmpeg_path = get_ffmpeg_path()
